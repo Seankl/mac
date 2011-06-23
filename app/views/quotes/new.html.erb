@@ -27,10 +27,9 @@
           It's that simple - Click now.
         </td>
       </tr>
-
-      <%  if Pot.last.remainder < Pot.last.limit %>
-        <%= render "oversupply" %>
-      <% else %>
+          <%  if Pot.last.remainder < Pot.last.limit %>
+            <%= render "oversupply" %>
+          <% else %>
           <tr>
             <td class="tab-bg">
               <%= render "your_mac", :f => f %>
