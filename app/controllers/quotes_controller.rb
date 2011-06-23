@@ -52,7 +52,11 @@ class QuotesController < ApplicationController
     @quote = Quote.new params[:quote]
     if (@value = @quote.calculate)
       render :update do |page|
-        page.replace_html "worth_value", @value
+        if @value == "capped"
+          page.replace_html "worth_body", :partial => "oversupply", :object => @quote.computer
+        else
+          page.replace_html "worth_value", @value
+        end
       end
     else
       report_errors
@@ -67,11 +71,12 @@ class QuotesController < ApplicationController
     end
   end
   def submit_quote
+    params[:quote][:collection_date] = Time.parse params[:quote][:collection_date]
     @quote = Quote.new params[:quote]
     if @quote.valid?
       mail = Notifier.create_quote @quote
       status = Notifier.deliver(mail)
-      pot = Pot.last
+      pot = @quote.computer.pot
       pot.remainder -= @quote.calculate
       pot.save
       head 200

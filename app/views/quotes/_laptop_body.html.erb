@@ -1,7 +1,7 @@
 <table>
-<tr>
-<td valign="top" >
-    <table width="801" cellspacing="0" cellpadding="0" border="0">
+  <tr>
+    <td valign="top">
+      <table width="801" cellspacing="0" cellpadding="0" border="0">
         <tbody>
             <tr>
                 <td class="productimagetext" colspan="1">
@@ -78,7 +78,7 @@
 							<tr>	
 								<td align="left" width="50%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                                 <a class="grade-text" onclick="window.open('<%= grading_quotes_path -%>', 'grading_definitions', 'directories=0, toolbar=0, width=720,height=700,scrollbars=1')" href="#">
-                                                        
+
 													<span style="text-decoration: underline;">
 														About grading
                                                     </span>
@@ -96,34 +96,34 @@
                                                         How to find this information
                                                     </span>
                                                 </a>
-                                </td>
-								<td valign="top" class="form-text">
-                                    <%= f.check_box "keyboard" %>Keyboard
-                                </td>
-                            </tr>
-                            <tr>
-                                <td align="right" style="padding-right: 20px;" colspan="2">
-                                    <table width="100%" cellspacing="0" cellpadding="0" border="0">
-                                        
-                                    </table>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td valign="bottom">
-                                	 <%= link_to_function image_tag("glass-buttons-back-195.jpg", :border => "0"), shuffle(:contract => ["laptop_body"], :expand => "mac_body") -%>
-                                </td>
-                                <td>
-                                   <%= link_to_remote image_tag("worth_button.jpg", :border => "0"), :url => {:action => "calculate"}, 
-										:with => "Form.serialize($('new_quote'))" + " + '&quote[stage]=details'",
-                                        :success => shuffle(:contract => ["laptop_body"], :expand => ["worth_body"]) -%>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
                 </td>
-            </tr>
+                <td valign="top" class="form-text">
+                  <%= f.check_box "keyboard" %>Keyboard
+                </td>
+              </tr>
+              <tr>
+                <td align="right" style="padding-right: 20px;" colspan="2">
+                  <table width="100%" cellspacing="0" cellpadding="0" border="0">
+
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td valign="bottom">
+                  <%= link_to_function image_tag("glass-buttons-back-195.jpg", :border => "0"), shuffle(:contract => ["laptop_body"], :expand => "mac_body") -%>
+                </td>
+                <td>
+                  <%= link_to_remote image_tag("worth_button.jpg", :border => "0"), :url => {:action => "calculate"},
+                                     :with                                               => "Form.serialize($('new_quote'))" + " + '&quote[stage]=details'",
+                                     :success                                            => shuffle(:contract => ["laptop_body"], :expand => ["worth_body"]) -%>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
         </tbody>
-    </table>
-</td>
-</tr>
+      </table>
+    </td>
+  </tr>
 </table>
